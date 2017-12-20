@@ -14,8 +14,6 @@
  	<script type="text/javascript" src="${contextPath}/ureport/res/ureport-asserts/venderjs/bootstrap.min.js"></script>
  	<script type="text/javascript" src="${contextPath}/ureport/res/ureport-asserts/venderjs/bootstrap-datetimepicker.js"></script>
  	<script type="text/javascript" src="${contextPath}/ureport/res/ureport-asserts/js/preview.bundle.js"></script>
- 	<script type="text/javascript" src="${contextPath}/ureport/res/ureport-asserts/js/browser.js"></script>
- 	<script type="text/javascript" src="${contextPath}/ureport/res/ureport-asserts/js/browser-polyfill.js">
 </head>
 <body style="margin:5px">
 ${upSearchFormHtml}
@@ -111,10 +109,10 @@ window._server="${contextPath}/ureport";
 window.formElements=[];
 $(document).ready(function(){
 	
-	buildPaging("${file}",${pageIndex},${totalPage},"${customParameters}","${_t}");
+	buildPaging(${pageIndex},${totalPage});
 	
 	#if($intervalRefreshValue>0)
-		_intervalRefresh($intervalRefreshValue,"${file}",$totalPage,"${customParameters}");
+		_intervalRefresh($intervalRefreshValue,$totalPage);
 	#end
 	_buildChartDatas($chartDatas);
 	${searchFormJs}
